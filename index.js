@@ -2,8 +2,13 @@ const axios = require ('axios')
 const cheerio= require ('cheerio')
 const express = require ('express')
 
-const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 5000
 const app = express()
+
+app.use(express.json())
+app.get('/', (req, res) => {
+    res.send('Welcome to my demo API')
+})
 
 axios('https://www.manchestereveningnews.co.uk/sport/football/')
     .then(res => {
